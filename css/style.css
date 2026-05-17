@@ -1,0 +1,51 @@
+/* Animasi berdenyut lembut untuk tombol utama */
+@keyframes pulse-gentle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.animate-pulse-gentle {
+    animation: pulse-gentle 2s infinite;
+}
+
+/* Efek tombol kartun 3D yang bisa ditekan */
+.btn-kartun {
+    position: relative;
+    transition: all 0.1s ease;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-kartun:active {
+    transform: translateY(4px);
+    border-bottom-width: 2px;
+}
+
+/* Animasi mengayun untuk maskot/ikon */
+@keyframes swing {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+.animate-swing {
+    animation: swing 3s ease-in-out infinite;
+}
+/* EFEK KARTU BERPUTAR 3D */
+.card-container {
+    perspective: 1000px; /* Memberikan efek kedalaman 3D */
+}
+
+.card-inner {
+    transform-style: preserve-3d;
+}
+
+/* Kondisi ketika kartu di-klik (ditambahkan kelas .flipped via JS inline) */
+.card-container.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.backface-hidden {
+    backface-visibility: hidden; /* Menyembunyikan bagian belakang saat posisi di depan */
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
