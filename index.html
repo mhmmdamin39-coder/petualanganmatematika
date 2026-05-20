@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Matematika: FPB & KPK</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Hubungkan CSS Kustom kita -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; }
+        .font-kids { font-family: 'Fredoka One', cursive; }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-blue-100 to-indigo-200 min-h-screen text-slate-800">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <h1 onclick="bukaMenu('home')" class="font-kids text-2xl text-indigo-600 tracking-wide cursor-pointer floating-element">🎒 MathAdventure</h1>
+            <div class="flex flex-wrap gap-2 mt-2 sm:mt-0">
+                <button onclick="bukaMenu('tujuan')" class="px-3 py-1.5 bg-amber-400 hover:bg-amber-500 text-white rounded-full text-sm font-bold shadow transition">Tujuan</button>
+                <button onclick="bukaMenu('petunjuk')" class="px-3 py-1.5 bg-green-400 hover:bg-green-500 text-white rounded-full text-sm font-bold shadow transition">Petunjuk</button>
+                <button onclick="bukaMenu('bacaan')" class="px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm font-bold shadow transition">Bahan Bacaan</button>
+                <button onclick="bukaMenu('video')" class="px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-full text-sm font-bold shadow transition">Video</button>
+                <button onclick="bukaMenu('berlatih')" class="px-3 py-1.5 bg-purple-500 hover:bg-purple-600 text-white rounded-full text-sm font-bold shadow transition">Ayo Berlatih!</button>
+                <button onclick="bukaMenu('penyusun')" class="px-3 py-1.5 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-sm font-bold shadow transition">Penyusun</button>
+                <button onclick="bukaMenu('pustaka')" class="px-3 py-1.5 bg-gray-500 hover:bg-gray-600 text-white rounded-full text-sm font-bold shadow transition">Pustaka</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- KONTEN UTAMA -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        
+       <!-- HOME SCREEN (RE-DESIGNED) -->
+<div id="home" class="konten-menu text-center my-6">
+    
+    <!-- Bagian Hero / Penyambutan -->
+    <div class="bg-white/80 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border-4 border-indigo-400 max-w-2xl mx-auto mb-10 relative overflow-hidden">
+        <!-- Hiasan Sudut -->
+        <div class="absolute -top-6 -left-6 w-16 h-16 bg-yellow-300 rounded-full opacity-50"></div>
+        <div class="absolute -bottom-6 -right-6 w-20 h-20 bg-pink-300 rounded-full opacity-50"></div>
+        
+        <!-- FOTO SAMPUL / COVER UTAMA (UKURAN JAUH LEBIH BESAR) -->
+        <div class="w-full max-w-xl mx-auto mb-6 transform hover:scale-101 transition duration-300">
+            <img src="assets/cover.jpg" 
+                 alt="Sampul Misi Rahasia FPB dan KPK" 
+                 onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=MathCover'" 
+                 class="w-full h-auto rounded-2xl shadow-md border-4 border-white mx-auto">
+        </div>
+
+        <!-- Judul Aplikasi -->
+        <h2 class="font-kids text-3xl sm:text-5xl text-indigo-700 tracking-wide mb-3 text-center">
+            Misi Rahasia: <br><span class="text-amber-500">FPB & KPK</span>
+        </h2>
+
+        <!-- Teks Pengantar -->
+        <p class="text-base sm:text-lg font-medium text-slate-600 max-w-md mx-auto mb-6 text-center leading-relaxed">
+            Halo Agen Cerdas! Dunia Matematika sedang membutuhkan bantuanmu untuk memecahkan teka-teki angka. Apakah kamu siap?
+        </p>
+
+        <!-- Tombol Mulai (Diposisikan di Tengah) -->
+        <div class="text-center">
+            <button onclick="bukaMenu('tujuan')" class="btn-kartun bg-emerald-500 hover:bg-emerald-600 text-white font-kids text-2xl px-10 py-4 rounded-2xl shadow-lg animate-pulse-gentle transition duration-200 inline-flex items-center gap-3 cursor-pointer">
+                Mulai Misi! 🚀
+            </button>
+        </div>
+    </div>
+
+    <!-- PUSAT NAVIGASI VISUAL (Grid Menu) -->
+    <h3 class="font-kids text-2xl text-indigo-800 mb-6">🗂️ Pilih Ruang Markasmu:</h3>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl mx-auto px-2">
+        
+        <!-- Tombol Tujuan -->
+        <button onclick="bukaMenu('tujuan')" class="btn-kartun bg-amber-400 hover:bg-amber-500 p-5 rounded-2xl text-white shadow-md flex flex-col items-center justify-center group">
+            <span class="text-4xl mb-2 group-hover:scale-110 transition transform">🎯</span>
+            <span class="font-kids text-lg tracking-wide">Target Misi</span>
+            <span class="text-xs text-amber-100 font-bold mt-1">(Tujuan)</span>
+        </button>
+
+        <!-- Tombol Petunjuk -->
+        <button onclick="bukaMenu('petunjuk')" class="btn-kartun bg-green-400 hover:bg-green-500 p-5 rounded-2xl text-white shadow-md flex flex-col items-center justify-center group">
+            <span class="text-4xl mb-2 group-hover:scale-110 transition transform">🗺️</span>
+            <span class="font-kids text-lg tracking-wide">Peta Panduan</span>
+            <span class="text-xs text-green-100 font-bold mt-1">(Petunjuk)</span>
+        </button>
+
+        <!-- Tombol Bahan Bacaan -->
+        <button onclick="bukaMenu('bacaan')" class="btn-kartun bg-blue-500 hover:bg-blue-600 p-5 rounded-2xl text-white shadow-md flex flex-col items-center justify-center group">
+            <span class="text-4xl mb-2 group-hover:scale-110 transition transform">📖</span>
+            <span class="font-kids text-lg tracking-wide">Buku Rahasia</span>
+            <span class="text-xs text-blue-100 font-bold mt-1">(Materi)</span>
+        </button>
+
+        <!-- Tombol Video Pembelajaran -->
+        <button onclick="bukaMenu('video')" class="btn-kartun bg-red-500 hover:bg-red-600 p-5 rounded-2xl text-white shadow-md flex flex-col items-center justify-center group">
+            <span class="text-4xl mb-2 group-hover:scale-110 transition transform">🎬</span>
+            <span class="font-kids text-lg tracking-wide">Bioskop Math</span>
+            <span class="text-xs text-red-100 font-bold mt-1">(Video)</span>
+        </button>
+
+        <!-- Tombol Ayo Berlatih -->
+        <button onclick="bukaMenu('berlatih')" class="btn-kartun bg-purple-600 hover:bg-purple-700 p-5 rounded-2xl text-white shadow-md flex flex-col items-center justify-center group col-span-2 sm:col-span-1">
+            <span class="text-4xl mb-2 group-hover:scale-110 transition transform">🎮</span>
+            <span class="font-kids text-lg tracking-wide">Zona Game</span>
+            <span class="text-xs text-purple-200 font-bold mt-1">(Latihan Soal)</span>
+        </button>
+
+        <!-- Tombol Penyusun -->
+        <button onclick="bukaMenu('penyusun')" class="btn-kartun bg-pink-500 hover:bg-pink-600 p-5 rounded-2xl text-white shadow-md flex flex-col items-center justify-center group">
+            <span class="text-4xl mb-2 group-hover:scale-110 transition transform">🧑‍🏫</span>
+            <span class="font-kids text-base tracking-wide">Profil Mentor</span>
+            <span class="text-xs text-pink-100 font-bold mt-1">(Penyusun)</span>
+        </button>
+
+        <!-- Tombol Daftar Pustaka (Dibuat agak kecil/lebar di bawah) -->
+        <button onclick="bukaMenu('pustaka')" class="btn-kartun bg-gray-500 hover:bg-gray-600 p-4 rounded-2xl text-white shadow-md flex items-center justify-center gap-3 col-span-2 sm:col-span-2">
+            <span class="text-2xl">📚</span>
+            <span class="font-kids text-sm tracking-wide">Sumber Energi (Daftar Pustaka)</span>
+        </button>
+
+    </div>
+</div>
+
+        <!-- ========================================== -->
+        <!-- HALAMAN TUJUAN / PAPAN MISI (SAMPUL BESAR) -->
+        <!-- ========================================== -->
+        <div id="tujuan" class="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border-4 border-amber-400 hidden konten-menu relative overflow-hidden max-w-2xl mx-auto my-6">
+            <!-- Tombol Kembali ke Home -->
+            <button onclick="bukaMenu('home')" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow transition cursor-pointer z-10">🏠</button>
+
+            <!-- FOTO SAMPUL RAKSASA DI ATAS -->
+            <div class="w-full mb-6 transform hover:scale-101 transition duration-300">
+                <img src="assets/tujuan pembelajaran.jpg" 
+                     alt="Sampul Papan Misi" 
+                     onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=MathMission'" 
+                     class="w-full h-auto rounded-2xl shadow-md border-4 border-white mx-auto">
+            </div>
+
+            <!-- Judul Papan Misi -->
+            <div class="text-center mb-8">
+                <h3 class="font-kids text-3xl sm:text-4xl text-amber-500 mt-2">Papan Misi Detektif 🎯</h3>
+                <p class="text-slate-500 text-sm mt-1">Selesaikan 3 misi ini untuk menjadi Master Matematika!</p>
+            </div>
+
+            <!-- Daftar Misi -->
+            <div class="space-y-4">
+                <!-- Misi 1 -->
+                <div class="flex items-start gap-4 bg-amber-50 p-4 rounded-2xl border-2 border-amber-200 hover:scale-102 transition transform">
+                    <div class="bg-amber-400 text-white font-kids text-xl w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow">01</div>
+                    <div>
+                        <h4 class="font-kids text-lg text-amber-700">Menjinakkan KPK 💡</h4>
+                        <p class="text-slate-600 text-sm">Kamu akan bisa menemukan angka terkecil yang sama dari dua bilangan untuk menyelesaikan rahasia waktu yang berputar!</p>
+                    </div>
+                </div>
+
+                <!-- Misi 2 -->
+                <div class="flex items-start gap-4 bg-teal-50 p-4 rounded-2xl border-2 border-teal-200 hover:scale-102 transition transform">
+                    <div class="bg-teal-400 text-white font-kids text-xl w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow">02</div>
+                    <div>
+                        <h4 class="font-kids text-lg text-teal-700">Membongkar Rahasia FPB 🍫</h4>
+                        <p class="text-slate-600 text-sm">Kamu akan bisa membagi benda atau makanan menjadi potongan paling besar secara adil dan rata tanpa sisa sedikit pun!</p>
+                    </div>
+                </div>
+
+                <!-- Misi 3 -->
+                <div class="flex items-start gap-4 bg-indigo-50 p-4 rounded-2xl border-2 border-indigo-200 hover:scale-102 transition transform">
+                    <div class="bg-indigo-400 text-white font-kids text-xl w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow">03</div>
+                    <div>
+                        <h4 class="font-kids text-lg text-indigo-700">Penyelamat Masalah Nyata 🌍</h4>
+                        <p class="text-slate-600 text-sm">Kamu bisa menggunakan kekuatan FPB & KPK untuk menolong teman-temanmu memecahkan masalah matematika di kehidupan sehari-hari!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Aksi Bawah -->
+            <div class="text-center mt-8">
+                <button onclick="bukaMenu('petunjuk')" class="btn-kartun bg-green-400 hover:bg-green-500 text-white font-kids text-lg px-6 py-3 rounded-xl shadow transition cursor-pointer">
+                    Ambil Misi & Lihat Petunjuk! 🗺️
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEKSI PETUNJUK (PETA PANDUAN) - SAMPUL BESAR -->
+        <!-- ========================================== -->
+        <div id="petunjuk" class="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border-4 border-green-400 hidden konten-menu relative overflow-hidden max-w-2xl mx-auto my-6">
+            <!-- Tombol Kembali ke Home -->
+            <button onclick="bukaMenu('home')" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow transition cursor-pointer z-10">🏠</button>
+
+            <!-- FOTO SAMPUL RAKSASA DI ATAS -->
+            <div class="w-full mb-6 transform hover:scale-101 transition duration-300">
+                <img src="assets/petunjuk.jpg" 
+                     alt="Sampul Peta Panduan" 
+                     onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=MathGuide'" 
+                     class="w-full h-auto rounded-2xl shadow-md border-4 border-white mx-auto">
+            </div>
+
+            <!-- Judul Peta Panduan -->
+            <div class="text-center mb-8">
+                <h3 class="font-kids text-3xl sm:text-4xl text-green-500 mt-2">Peta Panduan Agen 🗺️</h3>
+                <p class="text-slate-500 text-sm mt-1">Ikuti 3 langkah mudah ini agar petualanganmu berjalan lancar!</p>
+            </div>
+
+            <!-- Alur Langkah Alur Menggunakan Garis Vertikal Lucu -->
+            <div class="relative border-l-4 border-dashed border-green-300 ml-5 space-y-8 pb-2">
+                
+                <!-- Langkah 1 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-3.5 top-1 bg-green-400 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow">1</div>
+                    <h4 class="font-kids text-lg text-green-700">Buka Buku Rahasia 📖</h4>
+                    <p class="text-slate-600 text-sm">Pelajari materi FPB dan KPK melalui cerita seru dan penuh warna di ruang materi.</p>
+                </div>
+
+                <!-- Langkah 2 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-3.5 top-1 bg-green-400 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow">2</div>
+                    <h4 class="font-kids text-lg text-green-700">Masuk Bioskop Math 🎬</h4>
+                    <p class="text-slate-600 text-sm">Tonton video animasi penjelasan trik cepat pohon faktor yang seru dan asyik.</p>
+                </div>
+
+                <!-- Langkah 3 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-3.5 top-1 bg-green-400 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow">3</div>
+                    <h4 class="font-kids text-lg text-green-700"> Taklukkan Zona Game  🎮</h4>
+                    <p class="text-slate-600 text-sm">Uji kehebatan otakmu dengan menyelesaikan tantangan interaktif melalui soal soal tentang FPB & KPK!</p>
+                </div>
+
+            </div>
+
+            <!-- Tombol Aksi Bawah -->
+            <div class="text-center mt-8">
+                <button onclick="bukaMenu('bacaan')" class="btn-kartun bg-blue-500 hover:bg-blue-600 text-white font-kids text-lg px-6 py-3 rounded-xl shadow transition cursor-pointer">
+                    Siap, Masuk ke Buku Rahasia! 📖
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEKSI BAHAN BACAAN (BUKU RAHASIA) - SAMPUL BESAR -->
+        <!-- ========================================== -->
+        <div id="bacaan" class="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border-4 border-blue-400 hidden konten-menu relative overflow-hidden max-w-2xl mx-auto my-6">
+            <!-- Tombol Kembali ke Home -->
+            <button onclick="bukaMenu('home')" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow transition cursor-pointer z-10">🏠</button>
+
+            <!-- FOTO SAMPUL RAKSASA DI ATAS -->
+            <div class="w-full mb-6 transform hover:scale-101 transition duration-300">
+                <img src="assets/bahan bacaan.jpg" 
+                     alt="Sampul Buku Rahasia" 
+                     onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=MathBook'" 
+                     class="w-full h-auto rounded-2xl shadow-md border-4 border-white mx-auto">
+            </div>
+
+            <!-- Judul Buku Rahasia -->
+            <div class="text-center mb-6">
+                <h3 class="font-kids text-3xl sm:text-4xl text-blue-500 mt-2">Buku Rahasia Angka 📖</h3>
+                <p class="text-slate-500 text-sm mt-1">Ketuk tab di bawah untuk membuka mantra matematika!</p>
+            </div>
+
+            <!-- LINK BAHAN BACAAN UTAMA (DARI GOOGLE SHARE) -->
+            <div class="mb-6 text-center">
+                <a href="https://share.google/F5MZMfYRGT17Z3wON" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-kids text-base px-6 py-3 rounded-2xl shadow-lg transform hover:-translate-y-0.5 transition cursor-pointer">
+                    📚 Buka Lembar Bacaan Digital Terlengkap! 🚀
+                </a>
+                <p class="text-xs text-slate-400 mt-2">Klik tombol di atas untuk membuka ringkasan materi FPB & KPK secara penuh</p>
+            </div>
+
+            <!-- TAB TOMBOL PILIHAN MATERI -->
+            <div class="flex gap-2 justify-center mb-6">
+                <button onclick="bukaMenu('materi-kpk')" id="btn-tab-kpk" class="px-5 py-2.5 bg-blue-500 text-white font-kids rounded-xl shadow-md transition transform active:scale-95 cursor-pointer">⚡ Kekuatan KPK</button>
+                <button onclick="bukaMenu('materi-fpb')" id="btn-tab-fpb" class="px-5 py-2.5 bg-slate-200 text-slate-600 font-kids rounded-xl shadow-md transition transform active:scale-95 cursor-pointer">🎒 Kekuatan FPB</button>
+            </div>
+
+            <!-- ISI MATERI KPK -->
+            <div id="materi-kpk" class="space-y-4 bg-blue-50 p-5 rounded-2xl border-2 border-blue-200 animate-fade-in">
+                <h4 class="font-kids text-xl text-blue-700 flex items-center gap-2">💡 KPK (Kelipatan Persekutuan Terkecil)</h4>
+                <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                    Bayangkan kamu punya robot kelinci bernama **Koko** yang bisa melompat sejauh <span class="bg-blue-200 px-1.5 py-0.5 rounded font-bold">2 langkah</span> sekali lompat, dan robot katak bernama **Kiko** yang melompat sejauh <span class="bg-indigo-200 px-1.5 py-0.5 rounded font-bold">3 langkah</span>.
+                </p>
+                
+                <!-- Ilustrasi Angka Sederhana -->
+                <div class="bg-white p-3 rounded-xl shadow-inner text-sm space-y-1">
+                    <p class="text-slate-600">👟 Lompatan Koko (Kelipatan 2): <b class="text-blue-600">2, 4, <span class="bg-yellow-200 px-1 rounded text-slate-800">6</span>, 8, 10, <span class="bg-yellow-200 px-1 rounded text-slate-800">12</span>...</b></p>
+                    <p class="text-slate-600">🐸 Lompatan Kiko (Kelipatan 3): <b class="text-indigo-600">3, <span class="bg-yellow-200 px-1 rounded text-slate-800">6</span>, 9, <span class="bg-yellow-200 px-1 rounded text-slate-800">12</span>, 15...</b></p>
+                </div>
+
+                <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                    Lihat! Mereka mendarat di ubin yang sama pada angka <span class="font-bold text-amber-600 text-lg">6</span> dan <span class="font-bold text-amber-600 text-lg">12</span>. Karena angka <span class="bg-yellow-300 px-1.5 py-0.5 rounded font-bold">6</span> adalah angka kesamaan yang **paling pertama (terkecil)**, maka KPK dari 2 dan 3 adalah **6**!
+                </p>
+                <div class="bg-blue-100 border-l-4 border-blue-500 p-2.5 rounded text-xs italic text-blue-800">
+                     <b>Ciri Soal Cerita KPK:</b> Biasanya menanyakan waktu yang terjadi bersamaan lagi. Contoh: "Kapan lampu menyala bersamaan?", "Kapan mereka ronda bersama lagi?".
+                </div>
+            </div>
+
+            <!-- ISI MATERI FPB (Mula-mula disembunyikan) -->
+            <div id="materi-fpb" class="space-y-4 bg-teal-50 p-5 rounded-2xl border-2 border-teal-200 animate-fade-in hidden">
+                <h4 class="font-kids text-xl text-teal-700 flex items-center gap-2">🍫 FPB (Faktor Persekutuan Terbesar)</h4>
+                <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                    Sekarang, bayangkan kamu punya <span class="bg-teal-200 px-1.5 py-0.5 rounded font-bold">6 buah permen</span> dan <span class="bg-pink-200 px-1.5 py-0.5 rounded font-bold">9 buah cokelat</span>. Kamu ingin membaginya ke dalam kantong plastik untuk teman-temanmu secara **adil dan sama rata**.
+                </p>
+
+                <!-- Ilustrasi Angka Sederhana -->
+                <div class="bg-white p-3 rounded-xl shadow-inner text-sm space-y-1">
+                    <p class="text-slate-600">🍬 Angka membagi habis 6 permen: <b class="text-teal-600">1, 2, <span class="bg-yellow-200 px-1 rounded text-slate-800">3</span>, 6</b></p>
+                    <p class="text-slate-600">🍫 Angka membagi habis 9 cokelat: <b class="text-pink-600">1, <span class="bg-yellow-200 px-1 rounded text-slate-800">3</span>, 9</b></p>
+                </div>
+
+                <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                    Angka pembagi yang sama dan **paling besar** adalah <span class="font-bold text-amber-600 text-lg">3</span>. Berarti, kamu bisa membuat paling banyak **3 kantong plastik** secara adil (setiap kantong berisi 2 permen dan 3 cokelat). Jadi, FPB dari 6 and 9 adalah **3**!
+                </p>
+                <div class="bg-teal-100 border-l-4 border-teal-500 p-2.5 rounded text-xs italic text-teal-800">
+                    <b>Ciri Soal Cerita FPB:</b> Biasanya menanyakan jumlah pembagian barang/benda secara adil. Contoh: "Berapa plastik paling banyak yang dibutuhkan?".
+                </div>
+            </div>
+
+            <!-- Tombol Navigasi Lanjut -->
+            <div class="text-center mt-6">
+                <button onclick="bukaMenu('video')" class="btn-kartun bg-red-500 hover:bg-red-600 text-white font-kids text-lg px-6 py-3 rounded-xl shadow transition cursor-pointer">
+                    Nonton Bioskop Math! 🎬
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEKSI VIDEO PEMBELAJARAN (BIOSKOP MATH) - 2 VIDEO -->
+        <!-- ========================================== -->
+        <div id="video" class="bg-slate-900 p-6 sm:p-8 rounded-3xl shadow-2xl border-4 border-red-500 hidden konten-menu relative overflow-hidden max-w-2xl mx-auto my-6 text-white">
+            <!-- Tombol Kembali ke Home -->
+            <button onclick="bukaMenu('home')" class="absolute top-4 right-4 bg-slate-800 hover:bg-slate-700 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow transition cursor-pointer z-10">🏠</button>
+
+            <!-- FOTO SAMPUL RAKSASA DI ATAS -->
+            <div class="w-full mb-6 transform hover:scale-101 transition duration-300">
+                <img src="assets/video pembelajaran.jpg" 
+                     alt="Sampul Bioskop Math" 
+                     onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=MathCinema'" 
+                     class="w-full h-auto rounded-2xl shadow-md border-4 border-white mx-auto">
+            </div>
+
+            <!-- Judul Menu -->
+            <div class="text-center mb-8">
+                <h3 class="font-kids text-3xl sm:text-4xl text-red-500 mt-2">Bioskop Math Mini 🎬</h3>
+                <p class="text-slate-400 text-sm mt-1">Ambil posisi duduk yang nyaman dan tonton kedua petualangannya!</p>
+            </div>
+
+            <!-- AREA DUA LAYAR BIOSKOP -->
+            <div class="space-y-8">
+                
+                <!-- LAYAR BIOSKOP 1 -->
+                <div class="space-y-2">
+                    <h4 class="font-kids text-base text-red-400 flex items-center gap-2 px-1">🍿 Layar 1: Petualangan Pertama</h4>
+                    <div class="bg-black p-2 rounded-2xl border-2 border-slate-700 shadow-inner relative group">
+                        <div class="relative w-full h-0 pb-[56.25%] overflow-hidden rounded-xl">
+                            <iframe class="absolute top-0 left-0 w-full h-full" 
+                                    src="https://www.youtube.com/embed/C5tlveqmZTY" 
+                                    title="Video Pembelajaran FPB dan KPK 1" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LAYAR BIOSKOP 2 -->
+                <div class="space-y-2">
+                    <h4 class="font-kids text-base text-red-400 flex items-center gap-2 px-1">🍿 Layar 2: Petualangan Kedua</h4>
+                    <div class="bg-black p-2 rounded-2xl border-2 border-slate-700 shadow-inner relative group">
+                        <div class="relative w-full h-0 pb-[56.25%] overflow-hidden rounded-xl">
+                            <iframe class="absolute top-0 left-0 w-full h-full" 
+                                    src="https://www.youtube.com/embed/mfGZ6IjgQ7o" 
+                                    title="Video Pembelajaran FPB dan KPK 2" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- DETAIL & REKOMENDASI CAMILAN OTAK -->
+            <div class="mt-8 bg-slate-800 p-4 rounded-xl border border-slate-700">
+                <h4 class="font-kids text-lg text-amber-400 flex items-center gap-2">🍿 Catatan Menonton:</h4>
+                <p class="text-slate-300 text-sm mt-1 leading-relaxed">
+                    Perhatikan bagaimana guru di dalam video menggunakan metode **Pohon Faktor** untuk mencari **Faktorisasi Prima**. Rahasia perkalian bilangan prima ini akan sangat membantu kamu menaklukkan rintangan di Zona Game nanti!
+                </p>
+            </div>
+
+            <!-- Tombol Navigasi Lanjut -->
+            <div class="text-center mt-8">
+                <button onclick="bukaMenu('berlatih')" class="btn-kartun bg-purple-600 hover:bg-purple-700 text-white font-kids text-xl px-8 py-4 rounded-xl shadow-lg transition cursor-pointer">
+                    Masuk ke Zona Game! 🎮
+                </button>
+            </div>
+        </div>
+
+<!-- ========================================== -->
+<!-- SEKSI AYO BERLATIH (ZONA GAME SPIN THE WHEEL) -->
+<!-- ========================================== -->
+<div id="berlatih" class="bg-white/95 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border-4 border-purple-500 konten-menu relative overflow-hidden max-w-2xl mx-auto my-6">
+        
+        <button onclick="bukaMenu('home')" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow transition cursor-pointer z-10">🏠</button>
+
+        <div class="w-full mb-6 transform hover:scale-101 transition duration-300">
+            <img src="assets/ayo berlatih.jpg" 
+                 alt="Sampul Zona Game" 
+                 onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=MathGameZone'" 
+                 class="w-full h-auto rounded-2xl shadow-md border-4 border-white mx-auto">
+        </div>
+
+        <div class="text-center mb-6">
+            <h3 class="font-kids text-3xl sm:text-4xl text-purple-600 mt-2">Zona Game FPB & KPK 🎮</h3>
+            <p class="text-slate-500 text-sm mt-1">Misi: Putar rodanya dan jawab tantangan FPB & KPK dengan seru!</p>
+        </div>
+
+        <div class="bg-purple-50 p-4 rounded-2xl border-2 border-purple-200 text-center">
+            
+            <div class="relative w-full h-[500px] rounded-xl overflow-hidden shadow-inner bg-purple-100 flex items-center justify-center">
+                
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-purple-500 z-0 space-y-2 animate-pulse">
+                    <span class="text-3xl">🎯</span>
+                    <span class="font-kids text-sm">Menyiapkan Roda Berputar...</span>
+                </div>
+
+                <iframe 
+                    src="https://wordwall.net/embed/43486aa78f7c41a586908b27f24d2b3c?themeId=43&templateId=8&fontStackId=0" 
+                    class="w-full h-full relative z-10"
+                    style="border:0;" 
+                    allowfullscreen 
+                    allow="autoplay; camera; microphone; clipboard-write"
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
+                </iframe>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-8">
+            <button onclick="bukaMenu('penyusun')" class="bg-pink-500 hover:bg-pink-600 text-white font-kids text-lg px-6 py-3 rounded-xl shadow transition cursor-pointer">
+                Temui Mentor Penyusun 🧑‍🏫
+            </button>
+        </div>
+    </div>
+
+        <!-- ========================================== -->
+        <!-- SEKSI PENYUSUN (PROFIL MENTOR TIM) - SAMPUL BESAR -->
+        <!-- ========================================== -->
+        <div id="penyusun" class="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border-4 border-pink-400 hidden konten-menu relative overflow-hidden max-w-6xl mx-auto my-6 text-center">
+            <!-- Tombol Kembali ke Home -->
+            <button onclick="bukaMenu('home')" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow transition cursor-pointer z-10">🏠</button>
+
+            <!-- FOTO SAMPUL RAKSASA DI ATAS -->
+            <div class="w-full max-w-2xl mb-6 transform hover:scale-101 transition duration-300 mx-auto">
+                <img src="assets/penyusun.jpg" 
+                     alt="Sampul Menu Penyusun" 
+                     onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=MathTeam'" 
+                     class="w-full h-auto rounded-2xl shadow-md border-4 border-white mx-auto">
+            </div>
+
+            <!-- Judul Menu -->
+            <div class="mb-8">
+                <h3 class="font-kids text-3xl sm:text-4xl text-pink-500 mt-2">Di Balik Layar 🧑‍🏫</h3>
+                <p class="text-slate-500 text-sm mt-1">Kenalan dengan tim hebat pembuat website petualangan ini! (Ketuk kartu untuk melihat pesan)</p>
+            </div>
+
+            <!-- GRID KARTU TIM INTERAKTIF (4 KOLOM SEJAJAR DI LAYAR BESAR) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto px-2">
+                
+                <!-- ANGGOTA TIM 1: Fahrina Inayah -->
+                <div class="card-container h-72 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner w-full h-full relative transition-transform duration-500">
+                        <!-- Sisi Depan Kartu -->
+                        <div class="card-front absolute w-full h-full bg-pink-50 rounded-2xl border-2 border-pink-200 p-4 flex flex-col items-center justify-center shadow-sm backface-hidden">
+                            <!-- Link foto di-encode otomatis menggunakan %20 agar spasi aman terbaca sistem server -->
+                            <img src="assets/Fahrina%20Inayah.jpg" alt="Foto Fahrina Inayah" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Fahrina'" class="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-3 object-cover bg-slate-200">
+                            <h4 class="font-kids text-lg text-pink-700 leading-tight">Fahrina Inayah</h4>
+                            <p class="text-indigo-600 font-bold text-xs mt-1">2410125120051</p>
+                            <p class="text-slate-400 text-[10px] mt-1 leading-tight">Universitas Lambung Mangkurat</p>
+                        </div>
+                        <!-- Sisi Belakang Kartu -->
+                        <div class="card-back absolute w-full h-full bg-gradient-to-br from-pink-400 to-indigo-500 rounded-2xl p-4 flex flex-col items-center justify-center text-white shadow-sm backface-hidden rotate-y-180">
+                            <span class="text-2xl mb-1">💬</span>
+                            <p class="italic text-xs leading-relaxed text-center font-medium">
+                                "Matematika itu seru, jangan takut salah saat mencoba ya!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANGGOTA TIM 2: Meldy Nursyalima -->
+                <div class="card-container h-72 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner w-full h-full relative transition-transform duration-500">
+                        <!-- Sisi Depan -->
+                        <div class="card-front absolute w-full h-full bg-pink-50 rounded-2xl border-2 border-pink-200 p-4 flex flex-col items-center justify-center shadow-sm backface-hidden">
+                            <img src="assets/Meldy%20Nursyalima.jpg" alt="Foto Meldy Nursyalima" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Meldy'" class="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-3 object-cover bg-slate-200">
+                            <h4 class="font-kids text-lg text-pink-700 leading-tight">Meldy Nursyalima</h4>
+                            <p class="text-indigo-600 font-bold text-xs mt-1">2410125120064</p>
+                            <p class="text-slate-400 text-[10px] mt-1 leading-tight">Universitas Lambung Mangkurat</p>
+                        </div>
+                        <!-- Sisi Belakang -->
+                        <div class="card-back absolute w-full h-full bg-gradient-to-br from-pink-400 to-indigo-500 rounded-2xl p-4 flex flex-col items-center justify-center text-white shadow-sm backface-hidden rotate-y-180">
+                            <span class="text-2xl mb-1">✨</span>
+                            <p class="italic text-xs leading-relaxed text-center font-medium">
+                                "Belajar lewat visual bikin otak kita makin cerdas dan kreatif!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANGGOTA TIM 3: Nova Fitria -->
+                <div class="card-container h-72 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner w-full h-full relative transition-transform duration-500">
+                        <!-- Sisi Depan -->
+                        <div class="card-front absolute w-full h-full bg-pink-50 rounded-2xl border-2 border-pink-200 p-4 flex flex-col items-center justify-center shadow-sm backface-hidden">
+                            <img src="assets/Nova%20Fitria.jpg" alt="Foto Nova Fitria" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Nova'" class="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-3 object-cover bg-slate-200">
+                            <h4 class="font-kids text-lg text-pink-700 leading-tight">Nova Fitria</h4>
+                            <p class="text-indigo-600 font-bold text-xs mt-1">2410125320037</p>
+                            <p class="text-slate-400 text-[10px] mt-1 leading-tight">Universitas Lambung Mangkurat</p>
+                        </div>
+                        <!-- Sisi Belakang -->
+                        <div class="card-back absolute w-full h-full bg-gradient-to-br from-pink-400 to-indigo-500 rounded-2xl p-4 flex flex-col items-center justify-center text-white shadow-sm backface-hidden rotate-y-180">
+                            <span class="text-2xl mb-1">🚀</span>
+                            <p class="italic text-xs leading-relaxed text-center font-medium">
+                                "Pohon faktor adalah kunci rahasia menaklukkan FPB dan KPK!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANGGOTA TIM 4: Yuliasari -->
+                <div class="card-container h-72 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner w-full h-full relative transition-transform duration-500">
+                        <!-- Sisi Depan -->
+                        <div class="card-front absolute w-full h-full bg-pink-50 rounded-2xl border-2 border-pink-200 p-4 flex flex-col items-center justify-center shadow-sm backface-hidden">
+                            <!-- Mengganti/menambahkan class object-top agar fokus ke area atas (wajah) -->
+                            <img src="assets/yuliasari.png" alt="Foto Yuliasari" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Yulia'" class="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-3 object-cover object-top bg-slate-200">
+                            
+                            <h4 class="font-kids text-lg text-pink-700 leading-tight">Yuliasari</h4>
+                            <p class="text-indigo-600 font-bold text-xs mt-1">2410125220118</p>
+                            <p class="text-slate-400 text-[10px] mt-1 leading-tight">Universitas Lambung Mangkurat</p>
+                        </div>
+                        <!-- Sisi Belakang -->
+                        <div class="card-back absolute w-full h-full bg-gradient-to-br from-pink-400 to-indigo-500 rounded-2xl p-4 flex flex-col items-center justify-center text-white shadow-sm backface-hidden rotate-y-180">
+                            <span class="text-2xl mb-1">📐</span>
+                            <p class="italic text-xs leading-relaxed text-center font-medium">
+                                "Jangan takut mencoba hal baru, ilmu pengetahuan menunggumu eksplorasi!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tombol Navigasi Lanjut -->
+            <div class="text-center mt-8">
+                <button onclick="bukaMenu('pustaka')" class="btn-kartun bg-gray-500 hover:bg-gray-600 text-white font-kids text-lg px-6 py-3 rounded-xl shadow transition cursor-pointer">
+                    Lihat Daftar Pustaka 📚
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEKSI DAFTAR PUSTAKA (SUMBER ENERGI) - SAMPUL BESAR -->
+        <!-- ========================================== -->
+        <div id="pustaka" class="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border-4 border-gray-400 hidden konten-menu relative overflow-hidden max-w-2xl mx-auto my-6">
+            <!-- Tombol Kembali ke Home -->
+            <button onclick="bukaMenu('home')" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow transition cursor-pointer z-10">🏠</button>
+
+            <!-- FOTO SAMPUL RAKSASA DI ATAS -->
+            <div class="w-full mb-6 transform hover:scale-101 transition duration-300">
+                <img src="assets/daftar pustaka.jpg" 
+                     alt="Sampul Daftar Pustaka" 
+                     onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=MathLibrary'" 
+                     class="w-full h-auto rounded-2xl shadow-md border-4 border-white mx-auto">
+            </div>
+
+            <!-- Judul Menu -->
+            <div class="text-center mb-6">
+                <h3 class="font-kids text-3xl sm:text-4xl text-gray-600 mt-2">Sumber Energi Ilmu 📚</h3>
+                <p class="text-slate-500 text-sm mt-1">Buku dan pedoman hebat yang membantu penyusunan materi ini:</p>
+            </div>
+
+            <!-- VISUAL RAK BUKU -->
+            <div class="space-y-3 max-w-md mx-auto">
+                <!-- Buku 1 -->
+                <div class="bg-slate-50 p-4 rounded-xl border-l-8 border-blue-500 shadow-sm flex items-center gap-3">
+                    <span class="text-2xl">📘</span>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-snug">
+                        Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi. (2022). <b class="text-slate-900">Buku Panduan Guru & Siswa Matematika untuk SD Kelas IV</b>. Jakarta: Pusat Perbukuan.
+                    </p>
+                </div>
+
+                <!-- Buku 2 -->
+                <div class="bg-slate-50 p-4 rounded-xl border-l-8 border-teal-500 shadow-sm flex items-center gap-3">
+                    <span class="text-2xl">📗</span>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-snug">
+                        Hobri, dkk. (2022). <b class="text-slate-900">Senang Belajar Matematika SD/MI Kelas IV</b>. Jakarta: Kementerian Pendidikan dan Kebudayaan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FINISH SCREEN / SELESAI -->
+            <div class="text-center mt-8 pt-6 border-t border-slate-200">
+                <p class="text-slate-500 text-xs mb-3">Selamat! Kamu telah menjelajahi seluruh markas.</p>
+                <button onclick="bukaMenu('home')" class="btn-kartun bg-indigo-600 hover:bg-indigo-700 text-white font-kids text-lg px-8 py-3 rounded-xl shadow transition cursor-pointer">
+                    Kembali ke Gerbang Utama 🚀
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Hubungkan JavaScript Kustom kita -->
+    <script src="js/main.js"></script>
+</body>
+</html>
